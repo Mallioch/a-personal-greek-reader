@@ -14,11 +14,24 @@ def getTextOfSubFile(filename):
     source = open('./docs/' + filename)
     return source.read()
 
+
+
+
+#Personalize below
+
+#These are the supported font sizes: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, and 20pt.
+#See http://ctan.mackichan.com/macros/latex/contrib/extsizes/extsizes.pdf for more info.
+
 docOptions = [
+        #This one defines the filename and sizes for the large text version
         { 'filename': 'reader_treadmill', 'fontsize': '20', 'footnotesize': '17' },
+        #The normal version
         { 'filename': 'reader', 'fontsize': '14', 'footnotesize': '12' },
+        #If you want a third version, you can add it.
     ]
 
+#You won't read the same texts I read, so create your own files in the "docs" directory and
+#   add them here. They will be added to the output in the order you specify below.
 subtextFilenames = ['eusebius_commentary_on_isaiah.tex', 'plato_euthyphro.tex']
 template = getTemplateText()
 

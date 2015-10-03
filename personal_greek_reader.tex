@@ -1,11 +1,7 @@
 \documentclass[a4paper,$textsize$pt]{scrartcl}
 
-%20 17
-%14 12
-
 %http://tex.stackexchange.com/questions/249415/set-font-size-for-footnotes
 \addtokomafont{footnote}{\fontsize{$footnotesize$pt}{11pt}\selectfont}
-%\documentclass[a4paper,14pt]{scrartcl}
 
 \usepackage{fontspec}
 \setromanfont{Gentium Plus}
@@ -25,13 +21,7 @@
 
 %versification
 \newcommand
-    \versification[1]{
-        \textbf{
-            \textsf{
-                \small{#1}
-            }
-        }
-    }
+    \versification[1]{\textbf{\textsf{\small{#1}}}}
 
 %parsing
 \newcommand
