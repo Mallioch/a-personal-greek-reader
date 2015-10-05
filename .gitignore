@@ -4,6 +4,10 @@ latex-notes.html
 reader.out
 reader.tex
 reader.toc
+reader.aux
+reader.log
 reader_treadmill.out
 reader_treadmill.tex
 reader_treadmill.toc
+reader_treadmill.aux
+reader_treadmill.log

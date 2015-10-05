@@ -53,8 +53,5 @@ for optionSet in docOptions:
     call(['xelatex', optionSet['filename'] + '.tex'])
     #Yes, this needs to be called twice, for the TOC. Whacky.
     call(['xelatex', optionSet['filename'] + '.tex'])
-    #call(['rm', optionSet['filename'] + '.tex'])
-    #call(['rm', optionSet['filename'] + '.log'])
-    #call(['rm', optionSet['filename'] + '.aux'])
 
     call(['open', optionSet['filename'] + '.pdf'])
