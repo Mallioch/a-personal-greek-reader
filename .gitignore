@@ -1,3 +1,9 @@
 *.pdf
 alpheios.html
 latex-notes.html
+reader.out
+reader.tex
+reader.toc
+reader_treadmill.out
+reader_treadmill.tex
+reader_treadmill.toc

@@ -32,7 +32,7 @@ docOptions = [
 
 #You won't read the same texts I read, so create your own files in the "docs" directory and
 #   add them here. They will be added to the output in the order you specify below.
-subtextFilenames = ['eusebius_commentary_on_isaiah.tex', 'plato_euthyphro.tex']
+subtextFilenames = ['eusebius_commentary_on_isaiah.tex', 'lxx_psalms.tex', 'plato_euthyphro.tex']
 template = getTemplateText()
 
 allSubtextData = ''
@@ -51,8 +51,10 @@ for optionSet in docOptions:
     writeToFile(optionSet['filename'] + '.tex', output)
 
     call(['xelatex', optionSet['filename'] + '.tex'])
-    call(['rm', optionSet['filename'] + '.tex'])
-    call(['rm', optionSet['filename'] + '.log'])
-    call(['rm', optionSet['filename'] + '.aux'])
+    #Yes, this needs to be called twice, for the TOC. Whacky.
+    call(['xelatex', optionSet['filename'] + '.tex'])
+    #call(['rm', optionSet['filename'] + '.tex'])
+    #call(['rm', optionSet['filename'] + '.log'])
+    #call(['rm', optionSet['filename'] + '.aux'])
 
     call(['open', optionSet['filename'] + '.pdf'])

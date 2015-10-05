@@ -1,5 +1,6 @@
-\documentclass[a4paper,$textsize$pt]{scrartcl}
+\documentclass[a4paper,fontsize=$textsize$pt]{scrbook}
 
+    
 %http://tex.stackexchange.com/questions/249415/set-font-size-for-footnotes
 \addtokomafont{footnote}{\fontsize{$footnotesize$pt}{11pt}\selectfont}
 
@@ -7,17 +8,16 @@
 \setromanfont{Gentium Plus}
 \setsansfont{Helvetica}
 
+%for the toc
+\usepackage{hyperref}
+
 %redefine section
 \newcommand
-    \sect[1]{
-        \section*{#1}
-    }
+    {\sect}[1]{\chapter{#1}}
 
 %redefine subsection
 \newcommand
-    \subsect[1]{
-        \subsection*{#1}
-    }
+    {\subsect}[1]{\section{#1}}
 
 %versification
 \newcommand
@@ -25,10 +25,9 @@
 
 %parsing
 \newcommand
-    \parse[1]{
-        \textit{{#1}}
-    }
+    \parse[1]{\textit{{#1}}}
 
+%for dialogues
 \newcommand
     \speaker[1]{\hfill\par\textit{#1}\par}
 
@@ -36,13 +35,18 @@
 %set the leading
 \linespread{1.2}
 
-
-
+\title{A Personal Greek Reader}
 
 \begin{document}
 
+    
 \raggedright
+\maketitle
 
+\frontmatter
+\tableofcontents
+
+\mainmatter
 
 $text$
 
