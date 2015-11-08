@@ -24,34 +24,52 @@ def getTextOfSubFile(filename):
 
 docOptions = [
         #This one defines the filename and sizes for the large text version
-        { 'filename': 'reader_treadmill', 'fontsize': '20', 'footnotesize': '17' },
+        { 'filename_extension': '_treadmill', 'fontsize': '20', 'footnotesize': '17' },
         #The normal version
-        { 'filename': 'reader', 'fontsize': '14', 'footnotesize': '12' },
+        { 'filename_extension': '', 'fontsize': '14', 'footnotesize': '12' },
         #If you want a third version, you can add it.
     ]
 
 #You won't read the same texts I read, so create your own files in the "docs" directory and
 #   add them here. They will be added to the output in the order you specify below.
-subtextFilenames = ['eusebius_commentary_on_isaiah.tex', 'lxx_psalms.tex', 'plato_euthyphro.tex']
+subtextFilenames = [
+    { 'file': 'eusebius_commentary_on_isaiah.tex', 'title': 'Eusebius, Commentary on Isaiah' },
+    { 'file': 'lxx_psalms.tex', 'title': 'Psalms (LXX)' },
+    { 'file': 'lxx_isaiah.tex', 'title': 'Isaiah (LXX)' },
+    { 'file': 'lxx_habbakuk.tex', 'title': 'Habakkuk (LXX)' },
+    { 'file': 'plato_euthyphro.tex', 'title': 'Plato, Euthyphro' }
+]
 template = getTemplateText()
+version = '_0_1_1'
 
-allSubtextData = ''
-for filename in subtextFilenames:
+for doc in subtextFilenames:
+    allSubtextData = ''
     allSubtextData = allSubtextData + '\n\n\n\n\n\n\n%----------------------------------'
-    allSubtextData = allSubtextData + '\n%New File - ' + filename
-    allSubtextData = allSubtextData + getTextOfSubFile(filename)
+    allSubtextData = allSubtextData + '\n%New File - ' + doc['file']
+    allSubtextData = allSubtextData + getTextOfSubFile(doc['file'])
 
-for optionSet in docOptions:
+    for optionSet in docOptions:
 
-    template = getTemplateText()
-    output = template.replace('$text$', allSubtextData)
-    output = output.replace('$textsize$', optionSet['fontsize'])
-    output = output.replace('$footnotesize$', optionSet['footnotesize'])
+        template = getTemplateText()
+        output = template.replace('$text$', allSubtextData)
+        output = output.replace('$title$', doc['title'])
+        output = output.replace('$textsize$', optionSet['fontsize'])
+        output = output.replace('$footnotesize$', optionSet['footnotesize'])
 
-    writeToFile(optionSet['filename'] + '.tex', output)
+        outputFilename = doc['file'].replace('.tex', '') + optionSet['filename_extension']
 
-    call(['xelatex', optionSet['filename'] + '.tex'])
-    #Yes, this needs to be called twice, for the TOC. Whacky.
-    call(['xelatex', optionSet['filename'] + '.tex'])
+        writeToFile(outputFilename + '.tex', output)
 
-    call(['open', optionSet['filename'] + '.pdf'])
+        call(['xelatex', outputFilename + '.tex'])
+        #Yes, this needs to be called twice, for the TOC. Whacky.
+        call(['xelatex', outputFilename + '.tex'])
+
+        call(['cp', outputFilename + '.pdf', '/Users/ericsowell/Dropbox/Mobile/' + outputFilename + version + '.pdf'])
+
+        #call(['open', outputFilename + '.pdf'])
+
+        call(['rm', outputFilename + '.aux'])
+        call(['rm', outputFilename + '.log'])
+        call(['rm', outputFilename + '.out'])
+        call(['rm', outputFilename + '.tex'])
+        call(['rm', outputFilename + '.toc'])
