@@ -33,14 +33,14 @@ docOptions = [
 #You won't read the same texts I read, so create your own files in the "docs" directory and
 #   add them here. They will be added to the output in the order you specify below.
 subtextFilenames = [
-    { 'file': 'eusebius_commentary_on_isaiah.tex', 'title': 'Eusebius, Commentary on Isaiah' },
-    { 'file': 'lxx_psalms.tex', 'title': 'Psalms (LXX)' },
-    { 'file': 'lxx_isaiah.tex', 'title': 'Isaiah (LXX)' },
-    { 'file': 'lxx_habbakuk.tex', 'title': 'Habakkuk (LXX)' },
-    { 'file': 'plato_euthyphro.tex', 'title': 'Plato, Euthyphro' }
+    #{ 'file': 'eusebius_commentary_on_isaiah.tex', 'title': 'Eusebius, Commentary on Isaiah', 'version': '_0_1_1' },
+    #{ 'file': 'lxx_psalms.tex', 'title': 'Psalms (LXX)', 'version': '_0_1_1' },
+    #{ 'file': 'lxx_isaiah.tex', 'title': 'Isaiah (LXX)', 'version': '_0_1_1' },
+    #{ 'file': 'lxx_habbakuk.tex', 'title': 'Habakkuk (LXX)', 'version': '_0_1_1' },
+    { 'file': 'plato_euthyphro.tex', 'title': 'Plato, Euthyphro', 'version': '_0_2_0'},
+    { 'file': 'theophilus_to_autolycus.tex', 'title': 'Theophylus to Autolycus', 'version': '_0_1_1' }
 ]
 template = getTemplateText()
-version = '_0_1_1'
 
 for doc in subtextFilenames:
     allSubtextData = ''
@@ -64,7 +64,7 @@ for doc in subtextFilenames:
         #Yes, this needs to be called twice, for the TOC. Whacky.
         call(['xelatex', outputFilename + '.tex'])
 
-        call(['cp', outputFilename + '.pdf', '/Users/ericsowell/Dropbox/Mobile/' + outputFilename + version + '.pdf'])
+        call(['cp', outputFilename + '.pdf', '/Users/ericsowell/Dropbox/Mobile/' + outputFilename + doc['version'] + '.pdf'])
 
         #call(['open', outputFilename + '.pdf'])
 
