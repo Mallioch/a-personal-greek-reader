@@ -37,8 +37,9 @@ subtextFilenames = [
     #{ 'file': 'lxx_psalms.tex', 'title': 'Psalms (LXX)', 'version': '_0_1_1' },
     #{ 'file': 'lxx_isaiah.tex', 'title': 'Isaiah (LXX)', 'version': '_0_1_1' },
     #{ 'file': 'lxx_habbakuk.tex', 'title': 'Habakkuk (LXX)', 'version': '_0_1_1' },
-    { 'file': 'plato_euthyphro.tex', 'title': 'Plato, Euthyphro', 'version': '_0_2_0'},
-    { 'file': 'theophilus_to_autolycus.tex', 'title': 'Theophylus to Autolycus', 'version': '_0_1_1' }
+    { 'file': 'plato_euthyphro.tex', 'title': 'Plato, Euthyphro', 'version': '_0_4_0'},
+    { 'file': 'theophilus_to_autolycus.tex', 'title': 'Theophylus to Autolycus', 'version': '_0_1_1' },
+    { 'file': 'fabulae_faciles.tex', 'title': 'Fabulae Faciles', 'version': '_0_1_2' }
 ]
 template = getTemplateText()
 
