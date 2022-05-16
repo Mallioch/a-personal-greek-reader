@@ -1,4 +1,4 @@
-#A Personal Greek Reader
+# A Personal Greek Reader
 
 This is a little Greek reader I made for myself. It is nothing fancy but I figured I would share it anyway. A few things to note.
 
@@ -10,7 +10,7 @@ I built this to solve two of my problems. First, I wanted a reader that could be
 
 I'm still tweaking the LaTeX to improve the output but it has been working great for me for a number of weeks now.
 
-##Dependencies
+## Dependencies
 
 *   This script uses Python 3, so if you don't have this on your system, you will need to install it. Once installed, "python3 create.py" in a shell should generate everything for you.
 *   I am using Gentium Plus for the Greek font because it is the best ever. You will either need to change the font or get that installed on your system.
